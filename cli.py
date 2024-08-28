@@ -11,8 +11,8 @@ def main():
     
     args = parser.parse_args()
     
-    datos_clima = obtener_clima(args.city, args.country)
-    formato_salida = formatear_datos(datos_clima, args.format)
+    datos_clima = obtener_clima(args.ciudad, args.pais)
+    formato_salida = formatear_datos(datos_clima, args.formato)
     print(formato_salida)
 
 if __name__ == '__main__':
