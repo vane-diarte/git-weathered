@@ -2,11 +2,19 @@ import sys
 import os
 
 # Agrega el directorio raíz del proyecto a sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from api import obtener_clima
 
 def test_obtener_clima():
-    result = obtener_clima("Asuncion", "Paraguay")
+    # Caso exitoso
+    result = obtener_clima("Buenos Aires", "Ar")
     assert result is not None
-    assert "main" in result  # Verifica que la respuesta contiene datos esperados
+    assert "ciudad" in result
+    assert "pais" in result
+    assert "temperatura" in result
+    assert "condicion" in result
+
+    # Caso de error (ciudad inexistente)
+    result_error = obtener_clima("CiudadInexistente", "PaisInexistente")
+    assert "error" in result_error
