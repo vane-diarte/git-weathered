@@ -5,7 +5,6 @@ from io import StringIO
 def formatear_datos(obtener_clima, formato_salida):
     if "error" in obtener_clima:
         return obtener_clima["error"]
-    
     formatted_data = {
         "City": obtener_clima["ciudad"],
         "Country": obtener_clima["pais"],
